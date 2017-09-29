@@ -11,7 +11,6 @@
  * LICENSE file that was distributed with this source code.
  */
 
-
 class LocalStorageCache {
 
 	/**
@@ -35,6 +34,7 @@ class LocalStorageCache {
 	 * @returns {*}
 	 */
 	get(key){
+
 		if (!key) { return false; }
 
 		let data = localStorage.getItem(this.storagePrefix + key);
@@ -76,17 +76,19 @@ class LocalStorageCache {
 	 * @returns {*}
 	 */
 	remove (key){
+
 		if (!key) { return false; }
 		localStorage.removeItem(this.storagePrefix + key);
+
 		return undefined;
 	};
-
 
 	/**
 	 * Clear item with current Prefix
 	 * @returns {undefined}
 	 */
 	clear (){
+
 		if(this.storagePrefix){
 			for(let i in localStorage){
 
