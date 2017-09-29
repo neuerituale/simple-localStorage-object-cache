@@ -1,7 +1,7 @@
 # simple-localStorage-object-cache
 set, get or remove strings, integer and objects in localStorage.
 
-##Usage
+## Usage
 
 ### initialize
 Initialize the Storage and set a storage Prefix.
@@ -15,7 +15,7 @@ s.remove('key');
 s.clear();
 ```
 
-### set a variable
+### set a variable (object, number or string)
 
 ```js
 var object = {
@@ -30,9 +30,10 @@ var object = {
 
 s.set('myObject', object);
 ```
+
 The object `myObject` is stored in localStorage with JSON.stringify().
 
-### get a variable (object, number or string)
+### get a variable
 The setter try to parse the stringifed value and return it with the original variabel type.
 
 ```js
