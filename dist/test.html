@@ -1,0 +1,124 @@
+<html>
+
+<style>
+	* { font-family: sans-serif; }
+	h4 { margin-top: 0; }
+	#action { display: flex; }
+	#action > div { border: 1px solid gray; padding: 1rem; margin-left: 1rem }
+	#action > div:first-child { margin-left: 0 }
+	#console {border:1px solid black; padding: 1rem; margin-top: 1rem}
+
+</style>
+
+<body>
+
+	<h1>Test localStorage</h1>
+	<p>set, get or remove strings, integer and objects</p>
+
+	<div id="action">
+		<div>
+			<h4>Storage 1 (myStore)</h4>
+			<button onclick="writeToL1()">Write</button>
+			<button onclick="readFromL1()">Read</button>
+			<button onclick="clearL1()">Clear</button>
+		</div>
+		<div>
+			<h4>Storage 2 (yourStore)</h4>
+			<button onclick="writeToL2()">Write</button>
+			<button onclick="readFromL2()">Read</button>
+			<button onclick="clearL2()">Clear</button>
+		</div>
+		<div>
+			<h4>Raw data from localStorage</h4>
+			<button onclick="readLocalStorage()">Read</button>
+			<button onclick="clearAll()">Clear</button>
+		</div>
+	</div>
+
+	<div id="console">...</div>
+
+	<script src="localStorageCache.js"></script>
+	<script>
+
+		var l1 = new LocalStorageCache('myStore');
+		var l2 = new LocalStorageCache('yourStore');
+		var object = {
+			string: 'Helo',
+			int: 100,
+			subObject: {
+				test: 1,
+				test2: 2,
+				test3: '3'
+			}
+		};
+		var number = 42;
+		var string = 'HELLO WORLD';
+		var htmlConsole = document.getElementById('console');
+
+		function writeToL1(){
+			l1.set('number', number);
+			l1.set('string', string);
+			l1.set('object', object);
+			htmlConsole.innerHTML = 'a number, string and object are stored in localStorage with the prefix \'myStore\' <br>-------------------------------------------';
+		}
+
+		function writeToL2(){
+			l2.set('number', number);
+			l2.set('string', string);
+			l2.set('object', object);
+			htmlConsole.innerHTML = 'a number, string and object are stored in localStorage with the prefix \'yourStore\' <br>-------------------------------------------';
+		}
+
+		function readFromL1(){
+			var result = '';
+			result += 'typeof number: ' + typeof l1.get('number') + '<br>';
+			result += 'typeof string: ' + typeof l1.get('string') + '<br>';
+			result += 'typeof object: ' + typeof l1.get('object') + '<br>';
+			result += '-------------------------------------------';
+			htmlConsole.innerHTML = result;
+		}
+
+		function readFromL2(){
+			var result = '';
+			result += 'typeof number: ' + typeof l2.get('number') + '<br>';
+			result += 'typeof string: ' + typeof l2.get('string') + '<br>';
+			result += 'typeof object: ' + typeof l2.get('object') + '<br>';
+			result += '-------------------------------------------';
+			htmlConsole.innerHTML = result;
+		}
+
+		function clearL1(){
+			l1.clear();
+			htmlConsole.innerHTML = '\'myStore\' is cleared <br>-------------------------------------------';
+		}
+
+		function clearL2(){
+			l2.clear();
+			htmlConsole.innerHTML = '\'yourStore\' is cleared <br>-------------------------------------------';
+		}
+
+		function readLocalStorage(){
+			var result = '';
+			var empty = true;
+			for(var i in localStorage){
+				empty = false;
+				if(localStorage.hasOwnProperty(i)){
+					result += ''+i+': ' + localStorage.getItem(i) + '<br>';
+				}
+			}
+			if(empty) {
+				result = 'store is clear <br>';
+			}
+			result += '-------------------------------------------';
+			htmlConsole.innerHTML = result;
+
+		}
+
+		function clearAll(){
+			localStorage.clear();
+			htmlConsole.innerHTML = 'All clear <br>-------------------------------------------';
+		}
+	</script>
+
+</body>
+</html>

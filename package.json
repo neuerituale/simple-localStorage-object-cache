@@ -1,0 +1,29 @@
+{
+  "name": "simple-localstorage-object-cache",
+  "version": "1.0.0",
+  "description": "set, get or remove strings, integer and objects",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "globify": "^2.1.0",
+    "uglifyify": "^4.0.4"
+  },
+  "scripts": {
+    "help": "uglifyify --help",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "globify --watch --debug 'src/*.js' -t babelify -o dist",
+    "build": "globify -g uglifyify --no-sourcemap 'src/*.js' -t babelify -o dist/*.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neuerituale/simple-localStorage-object-cache.git"
+  },
+  "author": "Julian Winkel <code@neuerituale.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neuerituale/simple-localStorage-object-cache/issues"
+  },
+  "homepage": "https://github.com/neuerituale/simple-localStorage-object-cache#readme"
+}
