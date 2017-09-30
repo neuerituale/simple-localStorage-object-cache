@@ -6,8 +6,7 @@
 	#action { display: flex; }
 	#action > div { border: 1px solid gray; padding: 1rem; margin-left: 1rem }
 	#action > div:first-child { margin-left: 0 }
-	#console {border:1px solid black; padding: 1rem; margin-top: 1rem}
-
+	#console { border:1px solid black; padding: 1rem; margin-top: 1rem }
 </style>
 
 <body>
@@ -30,16 +29,15 @@
 		</div>
 		<div>
 			<h4>Raw data from localStorage</h4>
-			<button onclick="readLocalStorage()">Read</button>
-			<button onclick="clearAll()">Clear</button>
+			<button onclick="readLocalStorage()">Read All</button>
+			<button onclick="clearAll()">Clear All</button>
 		</div>
 	</div>
 
 	<div id="console">...</div>
 
-	<script src="localStorageCache.js"></script>
+	<script type="text/javascript" src="dist/localStorageCache.js"></script>
 	<script>
-
 		var l1 = new LocalStorageCache('myStore');
 		var l2 = new LocalStorageCache('yourStore');
 		var object = {

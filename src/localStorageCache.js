@@ -26,7 +26,7 @@ class LocalStorageCache {
 		this.storagePrefixDivider = ':';
 		this.storagePrefix = storagePrefix + ((storagePrefix) ? this.storagePrefixDivider : '');
 
-	}
+	};
 
 	/**
 	 * Get Data from localStorage
@@ -49,7 +49,7 @@ class LocalStorageCache {
 		}
 
 		return result;
-	}
+	};
 
 	/**
 	 * Set one Item
@@ -104,5 +104,5 @@ class LocalStorageCache {
 		}
 
 		return undefined;
-	}
+	};
 }
